@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EE742CCE-9453-428A-BE9E-D99AF3D872B9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ExzamenVS</RootNamespace>
+    <AssemblyName>ExzamenVS</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutocompleteMenu-ScintillaNET, Version=1.3.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoCompleteMenu-ScintillaNET.1.6.1\lib\net40\AutocompleteMenu-ScintillaNET.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac, Version=4.8.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.8.1\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="FastColoredTextBox, Version=2.16.24.0, Culture=neutral, PublicKeyToken=fb8aa12b994ef61b, processorArchitecture=MSIL">
+      <HintPath>..\packages\FCTB.2.16.24\lib\FastColoredTextBox.dll</HintPath>
+    </Reference>
+    <Reference Include="ScintillaNET, Version=3.6.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\jacobslusser.ScintillaNET.3.6.3\lib\net40\ScintillaNET.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IOC.cs" />
+    <Compile Include="Models\Project.cs" />
+    <Compile Include="Presenters\FormVSPresenter.cs" />
+    <Compile Include="Presenters\NewProjectPresenter.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\IProjectService.cs" />
+    <Compile Include="Services\ProjectService.cs" />
+    <Compile Include="Views\FormVS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormVS.Designer.cs">
+      <DependentUpon>FormVS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\IFormVSView.cs" />
+    <Compile Include="Views\INewProjectView.cs" />
+    <Compile Include="Views\IView.cs" />
+    <Compile Include="Views\NewProjectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\NewProjectForm.Designer.cs">
+      <DependentUpon>NewProjectForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Views\FormVS.resx">
+      <DependentUpon>FormVS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\NewProjectForm.resx">
+      <DependentUpon>NewProjectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-file-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OpenFile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Saveall_6518.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OpenProject.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CreateProject.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_14_939747.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_Play_132123.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_install_3017935.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_floppy_285657.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_xfce-system-exit_23651.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_text_align_right_103727.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_edit-cut_118919.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_copy_172587.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_edit-paste_118923.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_arrow_full_up_103296.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_arrow_full_down_103291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_remove-delete-document-documents-paper-message-file-letters-white_3937340.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_file_documents-13_854125.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cs_ico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file_format_48-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kisspng-c-computer-icons-object-c-icon-5b4c28c2e63e86.8649523215317178269431.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file_format_48-512 %281%29.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
